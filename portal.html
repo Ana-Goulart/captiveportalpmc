@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Portal Wi-fi</title>
+  <meta charset="utf-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid">
+ <div class="row">
+    <div class="col-md-4 offset-md-4"><!--LINDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO-->
+    <img src="brasão_pmc-removebg-preview.png" width="150" height="100" class="img-fluid">
+    <p id="frase">Faça login para continuar:</p>
+    <form onsubmit="return validarCampo()" action="segpagina.html"><!-- onsubmit: quando o usuario clicar no botão para enviar chamara a função e retornara o valor que sera passado, action e qual ação que sera realizada quando o usuario clicar em enviar-->
+    <label>Digite Seu Nome Completo</label><!--O label e para receber a entrada do formulario, o for e para receber o id do input-->
+    <input id="campoInputNome" class="form-control" type="text" placeholder="Nome Completo"> <!--input e para receber a entrada do formulario, id e para o label receber a entrada, esta classe e do botstrap, tipo dela: texto , placeholder e o campo que vai aparecer dentro do campo-->
+    <br>
+    <label>Digite Seu E-mail</label> <!--label e para receber a entrada do formulário e também colocar titulo-->
+    <input id="campoInputEmail" type="text" class="form-control" placeholder="E-mail"><!--Id para identificar, tipo que vai ser recebido, class-botstrap placeholder conteudo que vai aparecer dentro do campo-->
+    <div class="form-text">Você deve preencher todos os campos antes de continuar.</div> <!-- o class e do bootstrap também-->
+    <br>
+    <button type="submit" class="btn btn-outline-dark">Continue</button><!-- tipo do botão: submit- significa dentro deste formulario quando o usuario clicar ele tem que fazer algo que o formulario desejar neste caso na tag form foi inserido o onsubmit que vai receber tal função, essa class e do bootstamp-->
+    </form>
+</div>
+</div>
+</div>
+</div>
+  <script>
+    function validarCampo() {
+      const campoInputNome = document.getElementById("campoInputNome");//foi criada uma const porque ela vai ser inicada com um valor na mesma linha em que e declarada, depois cria a variavel campoInputNome e usa o document.getElementbyId e o id do elemento que ele vai buscar no html para atribuit a esta variavel
+      const valorInputNome = campoInputNome.value; //aqui ele cria outra constante que vai salvar a criada acima com o .value que e o valor recebido do input do html
+
+      const campoInputEmail = document.getElementById("campoInputEmail");
+      const valorInputEmail = campoInputEmail.value;
+
+      // Verifica se algum dos campos está vazio
+      if (valorInputNome.trim() === '' || valorInputEmail.trim() === '') { //o .trim ele e uma função para remover espaços em branco, ele e usado para garantir que aquele espaço não vai ficar em branco
+        // Se algum campo estiver vazio, exibe alerta e impede o envio do formulário
+        alert("Por favor, preencha todos os campos antes de continuar.");
+        return false; // retorna false para não continuar o comando e deixar o usuario digitar novamente
+      }
+       // Verifica se o campoInputNome contém apenas letras (sem números)
+  if (!/^[A-Za-z\s]+$/.test(valorInputNome)) { // ! - simbolo de diferente no caso diferentes dos caraters definidos: ^ inicio de uma string A-Za-z e letras maiuscula e minusculas \s espaço em branco o + significa que letras e espaços podem ocorrer mais de uma vez $ indica o final da string, o teste verifica se esta espressão coreesponde a string ele retorna true se for diferente e false se for igual 
+    alert("O campo Nome não pode conter números.");
+    return false;
+  }
+
+  return true;
+      // Caso ambos os campos estejam preenchidos, permite o envio do formulário
+      return true;
+    }
+  </script>
+  <style>
+   html, body {
+      height: 90%; /*altura a partir da borda de cima*/
+    }
+    body {
+      display: flex; /*usada para transformar um elemento pai no caso do body, pega toda a estrutura e faz a mesma formatação nos filhos*/
+      justify-content: center; /* Centraliza horizontalmente o conteúdo */
+      align-items: center; /* Centraliza verticalmente o conteúdo */
+      font-family: FreeMono, monospace;
+      font-size: 22px;
+    }
+    p{
+        color: rgb(9, 49, 124);
+        font-size: 20px;
+    }
+  </style>
+ 
+</body>
+</html>
