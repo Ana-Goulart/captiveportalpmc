@@ -1,0 +1,14 @@
+ html, body {
+      height: 90%; /*altura a partir da borda de cima*/
+    }
+    body {
+      display: flex; /*usada para transformar um elemento pai no caso do body, pega toda a estrutura e faz a mesma formatação nos filhos*/
+      justify-content: center; /* Centraliza horizontalmente o conteúdo */
+      align-items: center; /* Centraliza verticalmente o conteúdo */
+      font-family: FreeMono, monospace;
+      font-size: 22px;
+    }
+    p{
+        color: rgb(9, 49, 124);
+        font-size: 20px;
+    }
